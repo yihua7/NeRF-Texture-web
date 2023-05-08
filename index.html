@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="NeRF-Textures creates synthesized real-world textures from casually captured videos.">
+    <meta name="keywords" content="Neural radiance fields, texture synthesis, texture acquisition">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NeRF-Texture: Texture Synthesis with Neural Radiance Fields</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/ARF_VanGogh.jpg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">NeRF-Texture: Texture Synthesis with Neural Radiance Fields</h1>
+
+            <div class="is-size-5 publication-authors">
+              <div class="author-block">
+                <a href="https://yihua7.github.io/website/">Yihua Huang</a><sup>1,2</sup>,
+              </div>
+              <div class="author-block">
+                <a href="https://yanpei.me/">Yan-Pei Cao</a><sup>3</sup>,
+              </div>
+              <div class="author-block">
+                <a href="https://users.cs.cf.ac.uk/Yukun.Lai/">Yu-Kun Lai</a><sup>4</sup>,
+              </div>
+              <div class="author-block">
+                <a>Ying Shan</a><sup>3</sup>,
+              </div>
+              <div class="author-block">
+                <a href="http://geometrylearning.com/">Lin Gao</a><sup>2</sup>
+              </div>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>ICT, </span>
+                <span class="author-block"><sup>2</sup>UCAS, </span>
+                <span class="author-block"><sup>3</sup>ARC Lab, </span>
+              <span class="author-block"><sup>4</sup>Cardiff University</span>
+            </div>
+
+	    <div class="is-size-5 publication-authors">
+		<strong>SIGGRAPH 2023</strong>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a 
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper (Coming soon)</span>
+                  </a>
+                </span>
+                <!-- <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv (Coming soon)</span>
+                  </a>
+                </span> -->
+                <span class="link-block">
+                  <a href="https://youtu.be/d4QpDQzN2mU"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a 
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code & Data (Coming soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Texture synthesis is a fundamental problem in computer graphics that would benefit various applications. Existing methods are effective in handling 2D image textures. In contrast, many real-world textures contain meso-structure in the 3D geometry space, such as grass, leaves, and fabrics, which cannot be effectively modeled using only 2D image textures. We propose a novel texture synthesis method with Neural Radiance Fields (NeRF) to capture and synthesize textures from given multi-view images. 
+            In the proposed NeRF texture representation, a scene with fine geometric details is disentangled into the meso-structure textures and the underlying base shape. This allows textures with meso-structure to be effectively learned as latent features situated on the base shape, which are fed into a NeRF decoder trained simultaneously to represent the rich view-dependent appearance. Using this implicit representation, we can synthesize NeRF-based textures through patch matching of latent features.
+            However, inconsistencies between the metrics of the reconstructed content space and the latent feature space may compromise the synthesis quality. To enhance matching performance, we further regularize the distribution of latent features by incorporating a clustering constraint. Experimental results and evaluations demonstrate the effectiveness of our approach.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  <!-- <h3 class="subtitle has-text-centered">We create texture capture, synthesis, modeling and rendering method from multi-view images. </h3> -->
+
+  <!-- Texture Synthesis -->
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Texture Capture and Synthesis</h2>
+        <p>
+          You can capture real-world textures and synthesize them with <i>NeRF-Texture</i>.
+        </p>
+        <div id="results-carousel" class="carousel2 results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/cobble_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/ptbark_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!-- <h2 class="subtitle has-text-centered">Results on 360 captures</h2> -->
+    </div>
+  </section>
+  <!-- Texture Synthesis -->
+
+  <!-- Texture Application -->
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Application of Synthesized Texture</h2>
+        <p>
+          Textures synthesized by <i>NeRF-Texture</i> can be applied to decorate novel shapes.
+        </p>
+        <div id="results-carousel" class="carousel2 results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/starflower_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/starflower_application.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/starflower_application2.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div id="results-carousel" class="carousel2 results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/ptflower_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/ptflower_application.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/ptflower_application2.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!-- <h2 class="subtitle has-text-centered">Results on 360 captures</h2> -->
+    </div>
+  </section>
+  <!-- Texture Application -->
+
+  <!-- Texture Application -->
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">More Results</h2>
+        <div id="results-carousel" class="carousel2 results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/bark_application.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/durian_application.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/basket_application.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/grass_application.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/leafroad_application.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/bark_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/durian_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/basket_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/grass_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/leafroad_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!-- <h2 class="subtitle has-text-centered">Results on 360 captures</h2> -->
+    </div>
+  </section>
+  <!-- Texture Application -->
+
+  
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{huang2023nerf-texture,
+        author = {Huang, Yi-Hua and Cao, Yan-Pei and Lai, Yu-Kun and Shan, Ying and Gao, Lin},
+        title = {NeRF-Texture: Texture Synthesis with Neural Radiance Fields},
+        year = {2023},
+        isbn = {9798400701597},
+        booktitle = {ACM SIGGRAPH 2023 Conference Proceedings},
+        keywords = {Neural Radiance Fields, Texture Synthesis, Meso-structure Texture},
+        pages={1--10}
+}</code></pre>
+    </div>
+  </section>
+ 
+
+  <!-- Concurrent Work. -->
+  <div class="columns is-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Acknowledgements</h2>
+      <div class="content has-text-justified">
+        <p>The website template is borrowed from <a href="https://nerfies.github.io/">Nerfies</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!--/ Concurrent Work. -->
+</body>
+
+</html>
