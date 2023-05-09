@@ -130,10 +130,22 @@
 
   <!-- <h3 class="subtitle has-text-centered">We create texture capture, synthesis, modeling and rendering method from multi-view images. </h3> -->
 
+  <!-- Paper video. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Video</h2>
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/d4QpDQzN2mU"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <!--/ Paper video. -->
+
   <!-- Texture Synthesis -->
-  <section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="container">
+  <section class="section">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
         <h2 class="title is-3">Texture Capture and Synthesis</h2>
         <p>
           You can capture real-world textures and synthesize them with <i>NeRF-Texture</i>.
@@ -141,12 +153,7 @@
         <div id="results-carousel" class="carousel2 results-carousel">
           <div class="item item-steve">
             <video poster="" id="steve" autoplay controls muted loop width="100%">
-              <source src="./materials/videos/cobble_synthesis.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop width="100%">
-              <source src="./materials/videos/ptbark_synthesis.mp4" type="video/mp4">
+              <source src="./materials/videos/texture_synthesis.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -157,34 +164,17 @@
   <!-- Texture Synthesis -->
 
   <!-- Texture Application -->
-  <section class="hero is-light is-small">
-    <div class="hero-body">
+  <section class="section">
+    <div class="hero-body has-text-centered">
       <div class="container">
         <h2 class="title is-3">Application of Synthesized Texture</h2>
         <p>
           Textures synthesized by <i>NeRF-Texture</i> can be applied to decorate novel shapes.
         </p>
-        <div id="results-carousel" class="carousel2 results-carousel">
-          <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop width="100%">
-              <source src="./materials/videos/starflower_synthesis.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop width="100%">
-              <source src="./materials/videos/starflower_application.mp4" type="video/mp4">
-            </video>
-          </div>
+        <div id="results-carousel" class="carousel results-carousel">
           <div class="item item-steve">
             <video poster="" id="steve" autoplay controls muted loop width="100%">
               <source src="./materials/videos/starflower_application2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <div id="results-carousel" class="carousel2 results-carousel">
-          <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop width="100%">
-              <source src="./materials/videos/ptflower_synthesis.mp4" type="video/mp4">
             </video>
           </div>
           <div class="item item-steve">
@@ -194,22 +184,29 @@
           </div>
           <div class="item item-steve">
             <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/starflower_application.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/starflower_synthesis.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
               <source src="./materials/videos/ptflower_application2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop width="100%">
+              <source src="./materials/videos/ptflower_synthesis.mp4" type="video/mp4">
             </video>
           </div>
         </div>
       </div>
-      <!-- <h2 class="subtitle has-text-centered">Results on 360 captures</h2> -->
-    </div>
-  </section>
-  <!-- Texture Application -->
-
-  <!-- Texture Application -->
-  <section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">More Results</h2>
-        <div id="results-carousel" class="carousel2 results-carousel">
+      <div class="container has-text-centered">
+        <!-- <h2 class="title is-3">More Results</h2> -->
+        <div id="results-carousel" class="carousel results-carousel">
           <div class="item item-steve">
             <video poster="" id="steve" autoplay controls muted loop width="100%">
               <source src="./materials/videos/bark_application.mp4" type="video/mp4">
@@ -266,7 +263,6 @@
     </div>
   </section>
   <!-- Texture Application -->
-
   
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
